@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+{% block content %}
+<!-- Navigation bar -->
+<div class="row">
+    <div class="column-left">
+        <h3>Urshifu</h3>
+        <table>
+            <tr>
+                <th><button class="btn-grad-water">Surging Strikes</button></th>
+                <th><button class="btn-grad-fighting">Close Combat</button></th>
+                <th><button class="pokemon-target">Tatsugiri</button></th>
+            </tr>
+            <tr>
+                <td><button class="btn-grad-water">Aqua Jet</button></td>
+                <td><button class="btn-grad-bug">U-turn</button></td>
+                <td><button class="pokemon-target">Weezing</button></td>
+            </tr>
+        </table>
+        <p2>Switch!</p2>
+        <div class="btn-group">
+             <button class="switch-cant">Urshifu</button>
+             <button class="switch-cant">Miraidon</button>
+             <button class="switch-cant">Lunala</button>
+             <button class="switch-cant">Whimsicott</button>
+             <button class="tera-cant">TERASTALLIZE</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h3>Miraidon</h3>
+        <table>
+            <tr>
+                <th><button class="btn-grad-dragon">Draco Meteor</button></th>
+                <th><button class="btn-grad-electric">Electro Drift</button></th>
+                <th><button class="pokemon-target">Tatsugiri</button></th>
+            </tr>
+            <tr>
+                <td><button class="btn-grad-electric">Volt Switch</button></td>
+                <td><button class="btn-grad-fairy">Dazzling Gleam</button></td>
+                <td><button class="pokemon-target">Weezing</button></td>
+            </tr>
+        </table>
+        <p2>Switch!</p2>
+        <div class="btn-group">
+             <button class="switch-cant">Urshifu</button>
+             <button class="switch-cant">Miraidon</button>
+             <button class="switch-cant">Lunala</button>
+             <button class="switch-cant">Whimsicott</button>
+             <button class="tera-cant">TERASTALLIZE</button>
+        </div>
+        <button class="submission">SUBMIT</button>
+    </div>
+
+    <div class="column-right">
+        <div style="border: 1px transparent #D5CC5A; border-radius: 3px; overflow: hidden; margin:15px auto; max-width: 640px;">
+            <iframe scrolling="no" src="https://replay.pokemonshowdown.com/gen9vgc2025regibo3-2410389774-lkdj5v33mo8n6jgngbqkwx9tsk9eht2pw?turn=10" style="border: 0px none; margin-left: 0px; height: 433px; margin-top: -74px; width: 100%;">
+            </iframe>
+        </div>
+          <h4>Instructions</h4>
+          <p class="centered-paragraph-tutorial">Choose a move and target for each active Pokemon</p3>
+          <h5>OR</h5>
+          <p class="centered-paragraph-tutorial">Choose to swap your Pokemon for one in the back!</p3>
+          <br>
+          <p class="centered-paragraph-tera">Depending on the level, you may have the option to terastallize!</p4>
+    </div>  
+</div>
+{% endblock %}
+</body>
+</html>

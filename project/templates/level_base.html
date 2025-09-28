@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "main-wrapper">
+<div class="row">
+    <div class="column-left">
+        <h3>{{ pokemon1 }}</h3>
+        <table>
+            <tr>
+                <th><button class="btn-grad-{{ typeMove1 }}" data-type="move1" data-id="{{ moveOne }}">{{ moveOne }}</button></th>
+                <th><button class="btn-grad-{{ typeMove2 }}" data-type="move1" data-id="{{ moveTwo }}">{{ moveTwo }}</button></th>
+                <th><button class="pokemon-target" data-type="target1" data-id="{{ targetOne }}">{{ targetOne }}</button></th>
+            </tr>
+            <tr>
+                <th><button class="btn-grad-{{ typeMove3 }}" data-type="move1" data-id="{{ moveThree }}">{{ moveThree }}</button></th>
+                <th><button class="btn-grad-{{ typeMove4 }}" data-type="move1" data-id="{{ moveFour }}">{{ moveFour }}</button></th>
+                <th><button class="pokemon-target" data-type="target1" data-id="{{ targetTwo }}">{{ targetTwo }}</button></th>
+            </tr>
+        </table>
+        <p2>Switch!</p2>
+        <div class="btn-group">
+             <button class="switch-cant">{{ pokemon1 }}</button>
+             <button class="switch-cant">{{ pokemon2 }}</button>
+             <button class="switch-{{ can1 }}" data-type="switch1" data-id="{{ switchOne }}">{{ switchOne }}</button>
+             <button class="switch-{{ can2 }}" data-type="switch1" data-id="{{ switchTwo }}">{{ switchTwo }}</button>
+             <button class="tera-{{ tera1 }}" data-type="tera1">TERASTALLIZE</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h3>{{ pokemon2 }}</h3>
+        <table>
+            <tr>
+                <th><button class="btn-grad-{{ typeMove5 }}" data-type="move2" data-id="{{ moveFive }}">{{ moveFive }}</button></th>
+                <th><button class="btn-grad-{{ typeMove6 }}" data-type="move2" data-id="{{ moveSix }}">{{ moveSix }}</button></th>
+                <th><button class="pokemon-target" data-type="target2" data-id="{{ targetOne }}">{{ targetOne }}</button></th>
+            </tr>
+            <tr>
+                <th><button class="btn-grad-{{ typeMove7 }}" data-type="move2" data-id="{{ moveSeven }}">{{ moveSeven }}</button></th>
+                <th><button class="btn-grad-{{ typeMove8 }}" data-type="move2" data-id="{{ moveEight }}">{{ moveEight }}</button></th>
+                <th><button class="pokemon-target" data-type="target2" data-id="{{ targetTwo }}">{{ targetTwo }}</button></th>
+            </tr>
+        </table>
+        <p2>Switch!</p2>
+        <div class="btn-group">
+             <button class="switch-cant">{{ pokemon1 }}</button>
+             <button class="switch-cant">{{ pokemon2 }}</button>
+             <button class="switch-{{ can1 }}" data-type="switch2" data-id="{{ switchOne }}">{{ switchOne }}</button>
+             <button class="switch-{{ can2 }}" data-type="switch2" data-id="{{ switchTwo }}">{{ switchTwo }}</button>
+             <button class="tera-{{ tera2 }}" data-type="tera2">TERASTALLIZE</button>
+        </div>
+        <button class="submission">SUBMIT</button>
+    </div>
+
+    <div class="column-right">
+        <div style="border: 1px transparent #D5CC5A; border-radius: 3px; overflow: hidden; margin:15px auto; max-width: 640px;">
+            <iframe scrolling="no" src="{{ replay }}" style="border: 0px none; margin-left: 0px; height: 433px; margin-top: -74px; width: 100%;">
+            </iframe>
+        </div>
+          <div id="feedback" class="feedback-container"
+     style="margin-top:20px; color:#f0f0f0; white-space:pre-wrap;">Select actions for both Pokémon, then press submit to check!
+</div>
+    </div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const state = {
+        pokemonOne: {move1: null, target1: null, switch1: null, tera: null},
+        pokemonTwo: {move2: null, target2: null, switch2: null, tera: null}
+    };
+
+    function bindButtons(pokemonKey, type){
+        // runtime selector using the type parameter
+        const selector = 'button[data-type="' + type + '"]';
+
+        document.querySelectorAll(selector).forEach(button => {
+            // Ensure pointer-events isn't blocked by inline styles
+            if (button.style.pointerEvents === 'none') button.style.pointerEvents = 'auto';
+
+            button.addEventListener('click', function() {
+                // Respect CSS-disabled buttons (e.g. .switch-cant) by checking computed style
+                const comp = window.getComputedStyle(this);
+                if (comp.pointerEvents === 'none') return; // not clickable
+
+                // map tera1/tera2 -> common 'tera' property in state
+                const prop = type.startsWith('tera') ? 'tera' : type;
+
+                // Tera buttons: allow one tera selection per side
+                if (prop === 'tera'){
+                    // remember whether this button was selected before we clear others
+                    const wasSelected = this.classList.contains('btn-selected');
+
+                    // compute side suffix ('1' or '2')
+                    const suffix = (type.match(/\d+$/) || [''])[0];
+                    const switchKey = 'switch' + suffix;
+
+                    // clear only tera buttons for this side and reset tera state for that side
+                    document.querySelectorAll('button[data-type="tera' + suffix + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    if (state[pokemonKey]) state[pokemonKey].tera = null;
+
+                    // If it was not selected before, select it; if it was selected, leave it deselected
+                    if (!wasSelected) {
+                        this.classList.add('btn-selected');
+                        state[pokemonKey].tera = true;
+
+                        // clear selected classes for switches for that side, but keep them clickable
+                        document.querySelectorAll('button[data-type="' + switchKey + '"]').forEach(b => {
+                            b.classList.remove('btn-selected');
+                        });
+                        // clear switch state for that side
+                        if (state[pokemonKey]) state[pokemonKey][switchKey] = null;
+                    } else {
+                        // deselected: just clear tera state (do not disable/re-enable switches)
+                        if (state[pokemonKey]) state[pokemonKey].tera = null;
+                    }
+
+                    // ensure the tera button remains clickable/focusable
+                    this.style.pointerEvents = 'auto';
+                    return;
+                }
+
+                // For normal types (move1, move2, target1...), single-select within the same data-type
+                document.querySelectorAll(selector).forEach(b => {
+                    b.classList.remove('btn-selected');
+                    b.style.pointerEvents = 'auto';
+                });
+
+                const id = this.getAttribute('data-id');
+                if (state[pokemonKey][prop] !== id){
+                    this.classList.add('btn-selected');
+                    this.style.pointerEvents = 'auto';
+                    state[pokemonKey][prop] = id;
+                } else {
+                    state[pokemonKey][prop] = null;
+                }
+
+                // If a switch is chosen, clear related move/target/tera selections for that side
+                if (type.startsWith('switch')){
+                    const suffix = (type.match(/\d+$/) || [''])[0];
+                    const moveKey = 'move' + suffix;
+                    const targetKey = 'target' + suffix;
+                    // remove selected classes on those buttons
+                    document.querySelectorAll('button[data-type="' + moveKey + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    document.querySelectorAll('button[data-type="' + targetKey + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    // remove tera for that side
+                    document.querySelectorAll('button[data-type="tera' + suffix + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    // clear state
+                    if (state[pokemonKey]){
+                        state[pokemonKey][moveKey] = null;
+                        state[pokemonKey][targetKey] = null;
+                        state[pokemonKey].tera = null;
+                    }
+                }
+
+                if (type.startsWith('move') || type.startsWith('target')){
+                    const suffix = (type.match(/\d+$/) || [''])[0];
+                    const switchKey = 'switch' + suffix;
+                    document.querySelectorAll('button[data-type="' + switchKey + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    if (state[pokemonKey]){
+                        state[pokemonKey][switchKey] = null;
+                    }
+                }
+
+                if (type.startsWith('tera')){
+                    const suffix = (type.match(/\d+$/) || [''])[0];
+                    const switchKey = 'switch' + suffix;
+                    // remove selected classes on those buttons
+                    document.querySelectorAll('button[data-type="' + switchKey + '"]').forEach(b => b.classList.remove('btn-selected'));
+                    // clear state
+                    if (state[pokemonKey]){
+                        state[pokemonKey][switchKey] = null;
+                    }
+                }
+            });
+        });
+    }
+
+    // Bind using the state keys as strings
+    bindButtons('pokemonOne', 'move1');
+    bindButtons('pokemonOne', 'target1');
+    bindButtons('pokemonOne', 'switch1');
+    bindButtons('pokemonOne', 'tera1');
+    bindButtons('pokemonTwo', 'move2');
+    bindButtons('pokemonTwo', 'target2');
+    bindButtons('pokemonTwo', 'switch2');
+    bindButtons('pokemonTwo', 'tera2');
+
+    const feedbackEl = document.getElementById('feedback');
+    const btn = document.querySelector('button.submission');
+    // guard if button isn't present
+    if (btn) {
+        btn.addEventListener('click', () => {
+            // clear previous feedback
+            if (feedbackEl) feedbackEl.textContent = '';
+
+            // compute validity for each side (switch OR move+target OR tera)
+            const valid1 = !!(state.pokemonOne.switch1 || (state.pokemonOne.move1 && state.pokemonOne.target1) || state.pokemonOne.tera);
+            const valid2 = !!(state.pokemonTwo.switch2 || (state.pokemonTwo.move2 && state.pokemonTwo.target2) || state.pokemonTwo.tera);
+
+            if (!valid1 || !valid2) {
+                const missing = [];
+                if (!valid1) missing.push(`Please select an action for {{ pokemon1 }}.`);
+                if (!valid2) missing.push(`Please select an action for {{ pokemon2 }}.`);
+                if (feedbackEl) {
+                    feedbackEl.textContent = missing.join('\n');
+                    feedbackEl.style.background = 'rgba(220,20,60,0.12)';
+                    feedbackEl.style.padding = '8px';
+                    feedbackEl.style.borderRadius = '4px';
+                }
+                return;
+            }
+
+            if (feedbackEl) {
+                let level = "levelexample";
+                fetch('/data')
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to load /data');
+                    return response.json();
+                })
+                .then(data => {
+                    const summary = [];
+                    const part1 = [];
+                    const part2 = [];
+                    let correct1 = false;
+                    let correct2 = false;
+                    // compare using properties on the state object
+                    if (
+                        state.pokemonOne.move1 === data[level].move1 &&
+                        state.pokemonOne.target1 === data[level].target1 &&
+                        state.pokemonOne.switch1 === data[level].switch1 &&
+                        !!state.pokemonOne.tera === !!data[level].tera1
+                    ) {
+                        part1.push(`Correct options selected for {{ pokemon1 }}!`);
+                        correct1 = true;
+                    } else {
+                        part1.push(`Incorrect selection for {{ pokemon1 }}. Try again.`);
+                    }
+
+                    if (
+                        state.pokemonTwo.move2 === data[level].move2 &&
+                        state.pokemonTwo.target2 === data[level].target2 &&
+                        state.pokemonTwo.switch2 === data[level].switch2 &&
+                        !!state.pokemonTwo.tera === !!data[level].tera2
+                    ) {
+                        part2.push(`Correct options selected for {{ pokemon2 }}!`);
+                        correct2 = true;
+                    } else {
+                        part2.push(`Incorrect selection for {{ pokemon2 }}. Try again.`);
+                    }
+
+                    summary.push(part1.join(' '));
+                    summary.push(part2.join(' '));
+                    if(correct1 && correct2){
+                        summary.push('You beat the level!🎉');
+                        feedbackEl.style.background = 'rgba(0,128,0,0.06)';
+                        feedbackEl.style.padding = '8px';
+                        feedbackEl.style.borderRadius = '4px';
+                        feedbackEl.textContent = summary.join('\n'); 
+                    }
+                    else{
+                        feedbackEl.style.background = 'rgba(128,0,0,0.06)';
+                        feedbackEl.style.padding = '8px';
+                        feedbackEl.style.borderRadius = '4px';
+                        feedbackEl.textContent = summary.join('\n'); 
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    if (feedbackEl) {
+                        feedbackEl.textContent = 'Error loading level data.';
+                        feedbackEl.style.background = 'rgba(220,20,60,0.12)';
+                    }
+                });
+            }
+        });
+    }
+});
+</script>
+
+{% endblock %}
