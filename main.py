@@ -14,7 +14,7 @@ def profile():
 
 @main.route('/tutorial')
 def tutorial():
-    return render_template('index.html')
+    return render_template('tutorial.html')
 
 @main.route('/data')
 def data():
@@ -28,7 +28,7 @@ def data():
 @main.route('/levels')
 @login_required
 def levels():
-    return render_template('index.html')
+    return render_template('levels.html')
 
 @main.route('/level1')
 def level1():
