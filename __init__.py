@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 from models import db
 from flask_login import LoginManager
 from models import User
@@ -9,10 +10,14 @@ from main import main as main_blueprint
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = '1fhsef0293492cfhj'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', '1fhsef0293492cfhj')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/db.sqlite')
 
     db.init_app(app)
+    
+    # Create tables if they don't exist
+    with app.app_context():
+        db.create_all()
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
