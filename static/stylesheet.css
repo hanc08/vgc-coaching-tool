@@ -10,22 +10,32 @@ body {
     background-color: #333;
     overflow: hidden;
     padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar a {
-    margin-left:12px;
-    margin-right:12px;
-    float: left;
+    margin: 0;
     color: white;
     text-align: center;
-    padding: 30px 40px;
+    padding: clamp(15px, 2vw, 30px) clamp(20px, 3vw, 40px);
     text-decoration: none;
-    font-size: 25px;
+    font-size: clamp(16px, 2vw, 25px);
+    transition: background-color 0.3s;
 }
 
-.navbar a:hover {
-    background-color: #575757;
-    color: white;
+/* Add media queries for different viewport sizes */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .navbar a {
+        width: 100%;
+        padding: 15px;
+    }
 }
 
 /* Create three equal columns that floats next to each other */
