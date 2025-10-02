@@ -15,9 +15,10 @@ def create_app():
 
     db.init_app(app)
     
-    # Create tables if they don't exist
-    with app.app_context():
-        db.create_all()
+    # Move database creation to after app setup
+    if not os.path.exists('instance/db.sqlite'):
+        with app.app_context():
+            db.create_all()
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
