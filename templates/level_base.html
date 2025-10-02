@@ -201,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (feedbackEl) feedbackEl.textContent = '';
 
             // compute validity for each side (switch OR move+target OR tera)
-            const valid1 = !!(state.pokemonOne.switch1 || (state.pokemonOne.move1 && state.pokemonOne.target1) || state.pokemonOne.tera);
-            const valid2 = !!(state.pokemonTwo.switch2 || (state.pokemonTwo.move2 && state.pokemonTwo.target2) || state.pokemonTwo.tera);
+            const valid1 = !!(state.pokemonOne.switch1 || (state.pokemonOne.move1));
+            const valid2 = !!(state.pokemonTwo.switch2 || (state.pokemonTwo.move2));
 
             if (!valid1 || !valid2) {
                 const missing = [];
