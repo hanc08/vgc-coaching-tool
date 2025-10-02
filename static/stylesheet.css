@@ -27,48 +27,77 @@ body {
 
 @media screen and (max-width: 600px){
 .navbar a{
-    padding: 2vh 6vw;
+    padding: 5vh 7vw;
   }
 }
 
-.column{
-  float: right;
-  width: 47%;
-  padding: 20px;
-  padding-top: 40px;
-  font-size: 30px;
-  text-align: left;
-}
-
-.column-left {
-  float: right;
-  width: 47%;
-  padding: 20px;
-  padding-top: 40px;
-  font-size: 30px;
-  text-align: left;
-}
-
-.column-right {
+.column-left-home {
   float: left;
   width: 47%;
   padding: 20px;
-  padding-top: 40px;
-  font-size: 30px;
+  font-size: clamp(20px, 1.8vw, 30px);
   text-align: left;
 }
 
-/* Clear floats after the columns */
+.column-right-home {
+  float: right;
+  width: 47%;
+  padding: 20px;
+  font-size: clamp(20px, 1.8vw, 30px);
+  text-align: center;
+}
+
+.column-left-levels {
+  float: left;
+  width: 47%;
+  padding: 20px;
+  font-size: clamp(20px, 1.8vw, 30px);
+  text-align: left;
+}
+
+.column-right-levels{
+  float: right;
+  width: 47%;
+  padding: 20px;
+  font-size: clamp(20px, 1.8vw, 30px);
+  text-align: left;
+}
+
+@media screen and (max-width:800px) {
+  .column-left-levels {
+    width: 100%;
+  }
+  .column-right-levels {
+    width: 100%;
+  }
+}
 .row::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
+img {
+  max-width: 100%;
+  height: auto;    
+}
+
+@media screen and (max-width:800px) {
+  .column-left-home {
     width: 100%;
+    padding: 5vw;
+    padding-top: 1vw;
+  }
+
+  .column-right-home {
+    width: 100%;
+    padding: 5vw;
+    padding-top: 1vw;
+  }
+
+  img {
+  max-width: 70%;
+  height: auto;    
   }
 }
 
@@ -85,7 +114,7 @@ h2{
 }
 
 h3 {
-    color: rgb(220, 237, 238);
+    color: rgb(236, 241, 241);
     text-align:left;
     font-size:40px;
     margin:15px;
@@ -245,64 +274,47 @@ th, td {
     width:200px;
 }
 
-
-.btn-grad-water {
+.btn-grad-water, .btn-grad-fighting, .btn-grad-bug, .btn-grad-fire, .btn-grad-normal, 
+.btn-grad-grass, .btn-grad-ice, .btn-grad-poison, .btn-grad-ground, .btn-grad-flying, 
+.btn-grad-psychic, .btn-grad-bug, .btn-grad-rock, .btn-grad-ghost, .btn-grad-dark, 
+.btn-grad-steel, .btn-grad-fairy, .btn-grad-dragon, .btn-grad-electric {
+    cursor: pointer;
+    transition: all 0.3s ease;
     padding: 15px 0px;
     text-align: center;
-    transition: 0.5s;
     background-size: 200% auto;
     color: black;            
     border-radius: 10px;
     display: block;
     font-family: Verdana, sans-serif;
-    background: hsl(222, 29%, 93%);
+    font-size: clamp(10px, 2vw, 20px);
+    width: clamp(10px, 20vw, 250px);
+}
+
+/* Type-specific styles only include background and border-color */
+.btn-grad-water {
     background: linear-gradient(to bottom right, hsl(222, 29%, 97%), hsl(221, 78%, 69%));
-    font-size:20px;
-    width:250px;
+    border-color: hsl(222, 41%, 44%);
 }
 
 .btn-grad-water:hover {
-    background: hsl(222,29%,87%);
-	background: linear-gradient(to bottom right,  hsl(222,29%,94%),  hsl(221, 42%, 56%));
-	border-color: hsl(222, 41%, 44%);
+    background: linear-gradient(to bottom right, hsl(222,29%,94%), hsl(221, 42%, 56%));
+    border-color: hsl(222, 41%, 44%);
 }
 
 .btn-grad-dragon {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    background: hsl(257, 39%, 93%);
     background: linear-gradient(to bottom right, hsl(257, 39%, 97%), hsl(257, 46%, 78%));
     border-color: hsl(257, 39%, 70%);
-    width:250px;
-    font-size:20px;
 }
 
 .btn-grad-dragon:hover {
-    background: hsl(222,29%,87%);
-	background: linear-gradient(to bottom right, hsl(257, 39%, 97%), hsl(257, 47%, 68%));
+    background: linear-gradient(to bottom right, hsl(257, 39%, 97%), hsl(257, 47%, 68%));
     border-color: hsl(257, 43%, 65%);
 }
 
 .btn-grad-fighting {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(3,40%,93%);
-	background: linear-gradient(to bottom right, hsl(3, 40%, 97%), hsl(4, 69%, 75%));
-	border-color: #d19794;
-    width:250px;
+    background: linear-gradient(to bottom right, hsl(3, 40%, 97%), hsl(4, 69%, 75%));
+    border-color: #d19794;
 }
 
 .btn-grad-fighting:hover {
@@ -311,19 +323,8 @@ th, td {
 }
 
 .btn-grad-bug {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(66,42%,93%);
-	background: linear-gradient(to bottom right,  hsl(66,42%,97%),  hsl(65, 39%, 67%));
+    background: linear-gradient(to bottom right,  hsl(66,42%,97%),  hsl(65, 39%, 67%));
 	border-color: hsl(66, 66%, 66%);
-    width:250px;
 }
 
 .btn-grad-bug:hover {
@@ -332,19 +333,8 @@ th, td {
 }
 
 .btn-grad-electric {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(48,41%,93%);
-	background: linear-gradient(to bottom right,  hsl(48,41%,97%),  hsl(48, 79%, 69%));
+    background: linear-gradient(to bottom right,  hsl(48,41%,97%),  hsl(48, 79%, 69%));
 	border-color: hsl(48,41%,70%);
-    width:250px;
 }
 
 .btn-grad-electric:hover {
@@ -353,19 +343,8 @@ th, td {
 }
 
 .btn-grad-fairy {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(310,41%,93%);
-	background: linear-gradient(to bottom right,  hsl(310,41%,97%),  hsl(311, 42%, 82%));
+    background: linear-gradient(to bottom right,  hsl(310,41%,97%),  hsl(311, 42%, 82%));
 	border-color: hsl(310,41%,70%);
-    width:250px;
 }
 
 .btn-grad-fairy:hover {
@@ -374,265 +353,121 @@ th, td {
 }
 
 .btn-grad-normal {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(60,14%,93%);
-	background: linear-gradient(to bottom right,  hsl(60,14%,97%),  hsl(60,14%,84%));
+    background: linear-gradient(to bottom right,  hsl(60,14%,97%),  hsl(60,14%,84%));
 	border-color: hsl(60,14%,70%);
-    width:250px;
 }
 
 .btn-grad-normal:hover {
-	background: hsl(60,14%,93%);
 	background: linear-gradient(to bottom right,  hsl(60,14%,97%),  hsl(60, 14%, 79%));
 	border-color: hsl(60,14%,70%);
 }
 
 .btn-grad-fire {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(25,40%,93%);
-	background: linear-gradient(to bottom right,  hsl(25,40%,97%),  hsl(24, 47%, 68%));
+    background: linear-gradient(to bottom right,  hsl(25,40%,97%),  hsl(24, 47%, 68%));
 	border-color: hsl(25,40%,70%);
-    width:250px;
 }
 
 .btn-grad-fire:hover {
-	background: hsl(25,40%,93%);
 	background: linear-gradient(to bottom right,  hsl(25,40%,97%),  hsl(24, 41%, 59%));
 	border-color: hsl(25,40%,70%);
 }
 
 .btn-grad-grass {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(100,30%,93%);
-	background: linear-gradient(to bottom right,  hsl(100,30%,97%),  hsl(100, 39%, 72%));
+    background: linear-gradient(to bottom right,  hsl(100,30%,97%),  hsl(100, 39%, 72%));
 	border-color: hsl(100,30%,70%);
-    width:250px;
 }
 
 .btn-grad-grass:hover {
-	background: hsl(100,30%,93%);
 	background: linear-gradient(to bottom right,  hsl(100,30%,97%),  hsl(100, 35%, 60%));
 	border-color: hsl(100,30%,70%);
 }
 
 .btn-grad-ice {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(180,15%,93%);
-	background: linear-gradient(to bottom right,  hsl(180,15%,97%),  hsl(180, 41%, 77%));
+    background: linear-gradient(to bottom right,  hsl(180,15%,97%),  hsl(180, 41%, 77%));
 	border-color: hsl(180,15%,70%);
-    width:250px;
 }
 
 .btn-grad-ice:hover {
-	background: hsl(180,15%,93%);
 	background: linear-gradient(to bottom right,  hsl(180,15%,97%),  hsl(180, 27%, 59%));
 	border-color: hsl(180,15%,70%);
 }
 
 .btn-grad-poison {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(300,30%,93%);
-	background: linear-gradient(to bottom right,  hsl(300,30%,97%),  hsl(300, 40%, 73%));
+    background: linear-gradient(to bottom right,  hsl(300,30%,97%),  hsl(300, 40%, 73%));
 	border-color: hsl(300,30%,70%);
-    width:250px;
 }
 
 .btn-grad-poison:hover {
-	background: hsl(300,30%,93%);
 	background: linear-gradient(to bottom right,  hsl(300,30%,97%),  hsl(300, 46%, 67%));
 	border-color: hsl(300,30%,70%);
 }
 
 .btn-grad-ground {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(44,27%,93%);
-	background: linear-gradient(to bottom right,  hsl(44,27%,97%),  hsl(44, 38%, 73%));
+    background: linear-gradient(to bottom right,  hsl(44,27%,97%),  hsl(44, 38%, 73%));
 	border-color: hsl(44,27%,70%);
-    width:250px;
 }
 
 .btn-grad-ground:hover {
-	background: hsl(44,27%,93%);
 	background: linear-gradient(to bottom right,  hsl(44,27%,97%),  hsl(44, 44%, 69%));
 	border-color: hsl(44,27%,70%);
 }
 
 .btn-grad-flying {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(255,20%,93%);
-	background: linear-gradient(to bottom right,  hsl(255,20%,97%),  hsl(255, 38%, 79%));
+    background: linear-gradient(to bottom right,  hsl(255,20%,97%),  hsl(255, 38%, 79%));
 	border-color: hsl(255,20%,70%);
-    width:250px;
 }
 
 .btn-grad-flying:hover {
-	background: hsl(255,20%,93%);
 	background: linear-gradient(to bottom right,  hsl(255,20%,97%),  hsl(255, 40%, 73%));
 	border-color: hsl(255,20%,70%);
 }
 
 .btn-grad-psychic {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(342,33%,93%);
-	background: linear-gradient(to bottom right,  hsl(342,33%,97%),  hsl(342, 61%, 71%));
+    background: linear-gradient(to bottom right,  hsl(342,33%,97%),  hsl(342, 61%, 71%));
 	border-color: hsl(342,33%,70%);
-    width:250px;
 }
 
 .btn-grad-psychic:hover {
-	background: hsl(342,33%,93%);
 	background: linear-gradient(to bottom right,  hsl(342,33%,97%),  hsl(342, 58%, 62%));
 	border-color: hsl(342,33%,70%);
 }
 
 .btn-grad-rock {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(49,35%,93%);
-	background: linear-gradient(to bottom right,  hsl(49,35%,97%),  hsl(49, 37%, 68%));
+    background: linear-gradient(to bottom right,  hsl(49,35%,97%),  hsl(49, 37%, 68%));
 	border-color: hsl(49,35%,70%);
-    width:250px;
 }
 
 .btn-grad-rock:hover {
-	background: hsl(49,35%,93%);
 	background: linear-gradient(to bottom right,  hsl(49,35%,97%),  hsl(49, 31%, 64%));
 	border-color: hsl(49,35%,70%);
 }
 
 .btn-grad-ghost {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(262,21%,93%);
-	background: linear-gradient(to bottom right,  hsl(262,21%,97%),  hsl(260, 22%, 66%));
+    background: linear-gradient(to bottom right,  hsl(262,21%,97%),  hsl(260, 22%, 66%));
 	border-color: hsl(262,21%,70%);
-    width:250px;
 }
 
 .btn-grad-ghost:hover {
-	background: hsl(262,21%,93%);
 	background: linear-gradient(to bottom right,  hsl(262,21%,97%),  hsl(259, 29%, 64%));
 	border-color: hsl(262,21%,70%);
 }
 
 .btn-grad-dark {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(24,18%,93%);
-	background: linear-gradient(to bottom right,  hsl(24,18%,97%),  hsl(24, 8%, 63%));
+    background: linear-gradient(to bottom right,  hsl(24,18%,97%),  hsl(24, 8%, 63%));
 	border-color: hsl(24,18%,70%);
-    width:250px;
 }
 
 .btn-grad-dark:hover {
-	background: hsl(24,18%,93%);
 	background: linear-gradient(to bottom right,  hsl(24,18%,97%),  hsl(23, 5%, 51%));
 	border-color: hsl(24,18%,70%);
 }
 
 .btn-grad-steel {
-    padding: 15px 0px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;            
-    border-radius: 10px;
-    display: block;
-    font-family: Verdana, sans-serif;
-    font-size:20px;
-    background: hsl(240,6%,93%);
-	background: linear-gradient(to bottom right,  hsl(240,6%,97%),  hsl(240, 5%, 75%));
+    background: linear-gradient(to bottom right,  hsl(240,6%,97%),  hsl(240, 5%, 75%));
 	border-color: hsl(240,6%,70%);
-    width:250px;
 }
 
 .btn-grad-steel:hover {
-	background: hsl(240,6%,93%);
 	background: linear-gradient(to bottom right,  hsl(240,6%,97%),  hsl(240, 4%, 64%));
 	border-color: hsl(240,6%,70%);
 }
