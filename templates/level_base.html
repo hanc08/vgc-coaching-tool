@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<meta name="viewport" content="width=640px" />
+<script>
+    if (window.innerWidth < 1280) {
+        const viewport = document.createElement('meta');
+        viewport.name = 'viewport';
+        viewport.content = 'width=640';
+        document.head.appendChild(viewport);
+    }
+</script>
 <div class="row">
     <div class="column-left-levels">
-        <!-- <div style="border: 1px transparent #D5CC5A; border-radius: 3px; overflow: hidden; margin:15px auto; max-width: 640px;">
-            <iframe scrolling="no" src="{{ replay }}" style="border: 0px none; margin-left: 0px; height: 433px; margin-top: -74px; width: 100%;">
-            </iframe>
-        </div> -->
         <div style="border: 1px transparent #D5CC5A; border-radius: 3px; overflow: hidden; margin:15px auto; width:640px;">
             <iframe scrolling="no" src="{{ replay }}" style="border: 0px none; margin-left: 0px; height:433px; margin-top: -74px; width:100%;">
             </iframe>
@@ -39,8 +42,6 @@
              <button class="switch-{{ can2 }}" data-type="switch1" data-id="{{ switchTwo }}">{{ switchTwo }}</button>
              <button class="tera-{{ tera1 }}" data-type="tera1">TERASTALLIZE</button>
         </div>
-        <br>
-        <br>
         <br>
         <h3>{{ pokemon2 }}</h3>
         <table>
