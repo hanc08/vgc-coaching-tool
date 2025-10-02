@@ -69,6 +69,7 @@
 </div>
 
 <script>
+let level = "{{ levelTitle }}";
 document.addEventListener('DOMContentLoaded', () => {
     const state = {
         pokemonOne: {move1: null, target1: null, switch1: null, tera: null},
@@ -217,7 +218,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (feedbackEl) {
-                let level = "levelexample";
                 fetch('/data')
                 .then(response => {
                     if (!response.ok) throw new Error('Failed to load /data');

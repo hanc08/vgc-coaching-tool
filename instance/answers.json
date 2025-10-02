@@ -9,5 +9,14 @@
 "tera1": true,
 "tera2": null
 },
-"tutorial": ["Surging Strikes"]
+"tutorial": {
+"move1": "Headlong Rush",
+"target1": "Archaludon",
+"switch1": null,
+"move2": "Shadow Ball",
+"target2": "Sinistcha",
+"switch2": null,
+"tera1": null,
+"tera2": null
+}
 }
