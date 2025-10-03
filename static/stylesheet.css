@@ -25,23 +25,46 @@ body {
     color: white;
 }
 
+.levels-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
 .levelbar {
-  overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    padding: 20px;
 }
 
 .levelbar a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 30px 40px;
-  text-decoration: none;
-  font-size: clamp(10px, 5vw, 25px)
+    padding: 25px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 24px);
+    transition: all 0.3s ease;
+    background-color: rgb(223, 136, 123);
+    color: white;
+    border-radius: 10px;
 }
 
 .levelbar a:hover {
-    background-color: #575757;
-    color: white;
+    background-color: rgb(183, 110, 99);
 }
+
+@media screen and (max-width: 768px) {
+    .levelbar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .levelbar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media screen and (max-width: 600px){
 .navbar a{
     padding: 5vh 7vw;
@@ -169,8 +192,6 @@ p2{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
     color:rgb(223, 236, 147);
 }
-
-/* Level selection CSS removed (not used in templates) */
 
 table, th {  
   border: 1px solid #ddd;
@@ -716,57 +737,4 @@ h7 {
     border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid #ff3333;
-}
-
-div.levelSelection{
-    overflow: hidden;
-    display:flex;
-    justify-content:center;
-    margin-bottom:3em;
-}
-
-div.levelSelection19 a {
-  border: 1px rgb(252, 99, 79);
-  border-radius: 10px;  
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 57px;
-  padding-right: 57px;
-  text-decoration: none;
-  font-size:25px;
-  margin-left:1em;
-  background-color: rgb(228, 136, 124);
-}
-
-div.levelSelection19 a:hover {
-  background-color: rgb(227, 116, 102);
-}
-
-div.levelSelection10more {
-    overflow: hidden;
-    display:flex;
-    justify-content:center;
-}
-
-div.levelSelection10more a {
-border: 1px rgb(252, 99, 79);
-  border-radius: 10px;  
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
-  text-decoration: none;
-  font-size:25px;
-  margin-left:1em;
-  background-color: rgb(228, 136, 124);
-}
-
-div.levelSelection10more a:hover {
-  background-color: rgb(227, 116, 102);
 }

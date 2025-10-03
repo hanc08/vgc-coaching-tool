@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-   <div class="content">
-      <h2>Level Selection</h2>
-  </div>
+<div class="content">
+    <h2>Level Selection</h2>
+</div>
 
-  <div class="levelSelection19">
-    {% for lvl in range(1,2) %}
-      <a href="level{{lvl}}"
-         class="levelSelection19 a">
-        {{ lvl }}
-      </a>
-    {% endfor %}
-  </div>
+<table class="levels-table">
+    <tbody>
+        <tr>
+            <td>
+                <div class="levelbar">
+                    {% for lvl in range(1, 16) %}
+                        <a href="level{{lvl}}">
+                            {{ lvl }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 {% endblock %}
