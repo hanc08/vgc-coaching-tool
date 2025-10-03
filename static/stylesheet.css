@@ -701,7 +701,7 @@ h7 {
     border: 1px solid #ff3333;
 }
 
-div.levelSelection19 {
+div.levelSelection{
     overflow: hidden;
     display:flex;
     justify-content:center;

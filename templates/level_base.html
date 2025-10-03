@@ -16,7 +16,7 @@
             </iframe>
         </div>
           <div id="feedback" class="feedback-container"
-            style="margin-top:10px; color:#f0f0f0; white-space:pre-wrap;">Select actions for both Pokémon, then press submit to check!
+            style="margin-top:10px; color:#f0f0f0; white-space:pre-wrap;">Select actions for both Pokémon, then press submit to check! <br> Note: The opponent has {{ oppTera }}used tera.
         </div>
     </div>
 
@@ -70,6 +70,9 @@
 
 <script>
 let level = "{{ levelTitle }}";
+let opponentTera = "{{ oppTera }}"
+const hasTerad = [];
+hasTerad.push("Note: opponent has {{opponentTera }} used tera.");
 document.addEventListener('DOMContentLoaded', () => {
     const state = {
         pokemonOne: {move1: null, target1: null, switch1: null, tera: null},
@@ -209,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!valid1) missing.push(`Please select an action for {{ pokemon1 }}.`);
                 if (!valid2) missing.push(`Please select an action for {{ pokemon2 }}.`);
                 if (feedbackEl) {
+                    missing.push(hasTerad.join('\n'));
                     feedbackEl.textContent = missing.join('\n');
                     feedbackEl.style.background = 'rgba(220,20,60,0.12)';
                     feedbackEl.style.padding = '8px';
@@ -269,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         feedbackEl.style.background = 'rgba(128,0,0,0.06)';
                         feedbackEl.style.padding = '8px';
                         feedbackEl.style.borderRadius = '4px';
+                        summary.push(hasTerad.join('\n'));
                         feedbackEl.textContent = summary.join('\n'); 
                     }
                 })
