@@ -41,7 +41,7 @@ def tutorial():
     typeM7 = "dark"
     move8 = "Protect"
     typeM8 = "normal"
-    opponentTera = "not"
+    opponentTera = ""
     replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2451197018-g4n4vm0gt4ir286hlvpi3ax5n4erba1pw?turn=6"
     return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, opptera = opponentTera, replay=replaySRC)
 

@@ -16,7 +16,7 @@
             </iframe>
         </div>
           <div id="feedback" class="feedback-container"
-            style="margin-top:10px; color:#f0f0f0; white-space:pre-wrap;">Select actions for both Pokémon, then press submit to check! <br> Note: The opponent has {{ oppTera }}used tera.
+            style="margin-top:10px; color:#f0f0f0; white-space:pre-wrap;">Select actions for both Pokémon, then press submit to check! <br> <br> Note: The opponent has {{ opptera }}used tera.
         </div>
     </div>
 
@@ -70,7 +70,7 @@
 
 <script>
 let level = "{{ levelTitle }}";
-let opponentTera = "{{ oppTera }}"
+let opponentTera = "{{ opptera }}"
 const hasTerad = [];
 hasTerad.push("Note: opponent has {{opponentTera }} used tera.");
 document.addEventListener('DOMContentLoaded', () => {
