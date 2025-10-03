@@ -93,3 +93,71 @@ def level1():
     notes = "Note: Opponent has used tera"
     replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2454120667-2n0wldgvhbtcy2uv6f628b021ute7vbpw?turn=10"
     return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)
+
+@main.route('/level2')
+@login_required
+def level2():
+    path = 'level2.html'
+    levelName = 'level2'
+    mon1 = "Porygon2"
+    mon2 = "Incineroar"
+    target1 = "Baxcalibur"
+    target2 = "Sneasler"
+    switch1 = "Torkoal"
+    switch2 = "Ursaluna"
+    canOne = "cant"
+    canTwo = "cant"
+    tera = "cant"
+    move1= "Tera Blast"
+    typeM1 = "fighting"
+    move2 = "Ice Beam"
+    typeM2 = "ice"
+    move3 = "Recover"
+    typeM3 = "normal"
+    move4 = "Trick Room"
+    typeM4 = "psychic"
+    move5= "Fake Out"
+    typeM5 = "normal"
+    move6 = "Flare Blitz"
+    typeM6 = "fire"
+    move7 = "Knock Off"
+    typeM7 = "dark"
+    move8 = "Parting Shot"
+    typeM8 = "dark"
+    notes = "Note: Opponent has used tera. Both Incineroar and Sneasler are on the field for the first time."
+    replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2454673942-dnccwpk8k2dvckxfomrwa9xvl67jyaupw?turn=5"
+    return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)
+
+@main.route('/level3')
+@login_required
+def level3():
+    path = 'level3.html'
+    levelName = 'level3'
+    mon1 = "Ursaluna"
+    mon2 = "Sinistcha"
+    target1 = "Ninetales-Alola"
+    target2 = "Gholdengo"
+    switch1 = "Archaludon"
+    switch2 = "Gholdengo"
+    canOne = "cant"
+    canTwo = "can"
+    tera = "cant"
+    move1= "Facade"
+    typeM1 = "normal"
+    move2 = "Headlong Rush"
+    typeM2 = "ground"
+    move3 = "Earthquake"
+    typeM3 = "ground"
+    move4 = "Protect"
+    typeM4 = "normal"
+    move5= "Matcha Gotcha"
+    typeM5 = "grass"
+    move6 = "Rage Powder"
+    typeM6 = "bug"
+    move7 = "Life Dew"
+    typeM7 = "water"
+    move8 = "Trick Room"
+    typeM8 = "psychic"
+    notes = "Note: Gholdengo can use protect."
+    replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2454724809-7w3kle4q4aw76cnv1b7wio1prlestr4pw?turn=7"
+    return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)

@@ -28,5 +28,25 @@
 "switch2": "Torkoal",
 "tera1": null,
 "tera2": null
+},
+"level2": {
+"move1": "Tera Blast",
+"target1": "Baxcalibur",
+"switch1": null,
+"move2": "Fake Out",
+"target2": "Sneasler",
+"switch2": null,
+"tera1": null,
+"tera2": null
+},
+"level3": {
+"move1": "Headlong Rush",
+"target1": "Gholdengo",
+"switch1": null,
+"move2": null,
+"target2": null,
+"switch2": "Gholdengo",
+"tera1": null,
+"tera2": null
 }
 }
