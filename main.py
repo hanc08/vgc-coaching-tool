@@ -90,3 +90,36 @@ def level1():
     typeM8 = "fairy"
     replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regibo3-2410389774-lkdj5v33mo8n6jgngbqkwx9tsk9eht2pw?turn=10"
     return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, replay=replaySRC)
+
+@main.route('/level1')
+@login_required
+def level1():
+    path = 'level1.html'
+    levelName = 'level1'
+    mon1 = "Jumpluff"
+    mon2 = "Charizard"
+    target1 = "Pelipper"
+    target2 = "Basculegion"
+    switch1 = "Porygon2"
+    switch2 = "Torkoal"
+    canOne = "cant"
+    canTwo = "can"
+    tera = "cant"
+    move1= "Sleep Powder"
+    typeM1 = "grass"
+    move2 = "Rage Powder"
+    typeM2 = "bug"
+    move3 = "Tailwind"
+    typeM3 = "flying"
+    move4 = "Sunny Day"
+    typeM4 = "fire"
+    move5= "Heat Wave"
+    typeM5 = "fire"
+    move6 = "Air Slash"
+    typeM6 = "flying"
+    move7 = "Weather Ball"
+    typeM7 = "water"
+    move8 = "Overheat"
+    typeM8 = "fire"
+    replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2454120667-2n0wldgvhbtcy2uv6f628b021ute7vbpw?turn=10"
+    return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, replay=replaySRC)

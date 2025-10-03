@@ -700,3 +700,56 @@ h7 {
     margin-bottom: 10px;
     border: 1px solid #ff3333;
 }
+
+div.levelSelection19 {
+    overflow: hidden;
+    display:flex;
+    justify-content:center;
+    margin-bottom:3em;
+}
+
+div.levelSelection19 a {
+  border: 1px rgb(252, 99, 79);
+  border-radius: 10px;  
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 57px;
+  padding-right: 57px;
+  text-decoration: none;
+  font-size:25px;
+  margin-left:1em;
+  background-color: rgb(228, 136, 124);
+}
+
+div.levelSelection19 a:hover {
+  background-color: rgb(227, 116, 102);
+}
+
+div.levelSelection10more {
+    overflow: hidden;
+    display:flex;
+    justify-content:center;
+}
+
+div.levelSelection10more a {
+border: 1px rgb(252, 99, 79);
+  border-radius: 10px;  
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-decoration: none;
+  font-size:25px;
+  margin-left:1em;
+  background-color: rgb(228, 136, 124);
+}
+
+div.levelSelection10more a:hover {
+  background-color: rgb(227, 116, 102);
+}

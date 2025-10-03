@@ -231,10 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     let correct2 = false;
                     // compare using properties on the state object
                     if (
-                        state.pokemonOne.move1 === data[level].move1 &&
+                        (state.pokemonOne.move1 === data[level].move1 &&
                         state.pokemonOne.target1 === data[level].target1 &&
                         state.pokemonOne.switch1 === data[level].switch1 &&
-                        !!state.pokemonOne.tera === !!data[level].tera1
+                        !!state.pokemonOne.tera === !!data[level].tera1) || (state.pokemonOne.move1 === data[level].move1 &&
+                        "anything" === data[level].target1)
                     ) {
                         part1.push(`Correct options selected for {{ pokemon1 }}!`);
                         correct1 = true;
@@ -246,7 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         state.pokemonTwo.move2 === data[level].move2 &&
                         state.pokemonTwo.target2 === data[level].target2 &&
                         state.pokemonTwo.switch2 === data[level].switch2 &&
-                        !!state.pokemonTwo.tera === !!data[level].tera2
+                        !!state.pokemonTwo.tera === !!data[level].tera2 || (state.pokemonOne.move1 === data[level].move1 &&
+                        "anything" === data[level].target1)
                     ) {
                         part2.push(`Correct options selected for {{ pokemon2 }}!`);
                         correct2 = true;
