@@ -135,7 +135,7 @@ def level3():
     levelName = 'level3'
     mon1 = "Ursaluna"
     mon2 = "Sinistcha"
-    target1 = "Ninetales-Alola"
+    target1 = "Sneasler"
     target2 = "Gholdengo"
     switch1 = "Archaludon"
     switch2 = "Gholdengo"
@@ -160,4 +160,72 @@ def level3():
     typeM8 = "psychic"
     notes = "Note: Gholdengo can use protect."
     replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025regh-2454724809-7w3kle4q4aw76cnv1b7wio1prlestr4pw?turn=7"
+    return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)
+
+@main.route('/level4')
+@login_required
+def level4():
+    path = 'level4.html'
+    levelName = 'level4'
+    mon1 = "Gholdengo"
+    mon2 = "Dragonite"
+    target1 = "Ursaluna"
+    target2 = "Sneasler"
+    switch1 = "Ursaluna"
+    switch2 = "Incineroar"
+    canOne = "cant"
+    canTwo = "can"
+    tera = "cant"
+    move1= "Make It Rain"
+    typeM1 = "steel"
+    move2 = "Shadow Ball"
+    typeM2 = "ghost"
+    move3 = "Nasty Plot"
+    typeM3 = "dark"
+    move4 = "Protect"
+    typeM4 = "normal"
+    move5= "Low Kick"
+    typeM5 = "fighting"
+    move6 = "Extreme Speed"
+    typeM6 = "normal"
+    move7 = "Stomping Tantrum"
+    typeM7 = "ground"
+    move8 = "Tera Blast"
+    typeM8 = "normal"
+    notes = "Note: Sneasler & Ursaluna can protect."
+    replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025reghbo3-2454813993-v1cp3x8hlg6epmb6ey3xjre8c4cioobpw?turn=5"
+    return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)
+
+@main.route('/level5')
+@login_required
+def level5():
+    path = 'level5.html'
+    levelName = 'level5'
+    mon1 = "Gholdengo"
+    mon2 = "Whimsicott"
+    target1 = "Volcarona"
+    target2 = "Basculegion"
+    switch1 = "Ursaluna"
+    switch2 = "Archaludon"
+    canOne = "cant"
+    canTwo = "cant"
+    tera = "cant"
+    move1= "Make It Rain"
+    typeM1 = "steel"
+    move2 = "Shadow Ball"
+    typeM2 = "ghost"
+    move3 = "Power Gem"
+    typeM3 = "rock"
+    move4 = "Trick"
+    typeM4 = "psychic"
+    move5= "Tailwind"
+    typeM5 = "flying"
+    move6 = "Moonblast"
+    typeM6 = "fairy"
+    move7 = "Encore"
+    typeM7 = "normal"
+    move8 = "Fake Tears"
+    typeM8 = "dark"
+    notes = "Note: Volcarona just used Quiver Dance. \n Opponent does not have tera"
+    replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025reghbo3-2454818681-3ppmdhfismwfwx2ixqs6juwqqyr07o9pw?turn=5"
     return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)

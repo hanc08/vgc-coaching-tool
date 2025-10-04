@@ -53,15 +53,9 @@ body {
     background-color: rgb(183, 110, 99);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .levelbar {
         grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .levelbar {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 

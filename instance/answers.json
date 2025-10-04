@@ -48,5 +48,25 @@
 "switch2": "Gholdengo",
 "tera1": null,
 "tera2": null
+},
+"level4": {
+"move1": "Make It Rain",
+"target1": "any",
+"switch1": null,
+"move2": "Extreme Speed",
+"target2": "Sneasler",
+"switch2": null,
+"tera1": null,
+"tera2": null
+},
+"level5": {
+"move1": "Shadow Ball",
+"target1": "Basculegion",
+"switch1": null,
+"move2": "Encore",
+"target2": "Volcarona",
+"switch2": null,
+"tera1": null,
+"tera2": null
 }
 }
