@@ -135,7 +135,7 @@ def level3():
     levelName = 'level3'
     mon1 = "Ursaluna"
     mon2 = "Sinistcha"
-    target1 = "Sneasler"
+    target1 = "Ninetales"
     target2 = "Gholdengo"
     switch1 = "Archaludon"
     switch2 = "Gholdengo"
