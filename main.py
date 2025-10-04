@@ -226,6 +226,6 @@ def level5():
     typeM7 = "normal"
     move8 = "Fake Tears"
     typeM8 = "dark"
-    notes = "Note: Volcarona just used Quiver Dance. \n Opponent does not have tera"
+    notes = "Note: Volcarona just used Quiver Dance. Opponent cannot tera"
     replaySRC="https://replay.pokemonshowdown.com/gen9vgc2025reghbo3-2454818681-3ppmdhfismwfwx2ixqs6juwqqyr07o9pw?turn=5"
     return render_template(path, levelTitle = levelName, pokemon1 = mon1, pokemon2 = mon2, targetOne = target1,targetTwo = target2, switchOne = switch1,switchTwo  = switch2, can1 = canOne, can2 = canTwo, tera1 = tera,tera2 = tera,moveOne = move1,typeMove1 = typeM1,moveTwo = move2,typeMove2 =typeM2,moveThree = move3,typeMove3 = typeM3,moveFour = move4,typeMove4 = typeM4,moveFive = move5,typeMove5 = typeM5,moveSix = move6,typeMove6 = typeM6,moveSeven = move7,typeMove7 = typeM7,moveEight = move8,typeMove8 = typeM8, Notes = notes, replay=replaySRC)
